@@ -31,7 +31,7 @@ export default function Cookie({ cookies, setCookies, cookiesPerSecond }) {
       //   " Cookies per second:",
       //   cookiesPerSecond
       // );
-      setCookies(100);
+      setCookies(newCookieCount);
       localStorage.setItem("cookies", Number(newCookieCount));
       localStorage.setItem("cookiesPerSecond", Number(cookiesPerSecond));
     }, 1000);

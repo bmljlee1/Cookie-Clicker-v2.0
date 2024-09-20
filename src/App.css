@@ -12,8 +12,19 @@ p {
   font-size: 24px;
   font-weight: bold;
 }
-.upgradeContainer,
-h2 {
+.upgradeContainer {
   display: flex;
   flex-direction: column;
+  width: 300px;
+}
+.main.mainContainer {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  padding: 20px; /
+}
+
+.cookieSection {
+  display: flex; 
+  align-items: center; 
 }

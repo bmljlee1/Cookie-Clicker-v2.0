@@ -21,14 +21,19 @@ export default function Upgrade({
   }, []);
 
   const handleUpgradeClick = (upgrade) => {
+    const upgradeCost = Number(upgrade.cost);
+    const upgradeIncrease = Number(upgrade.increase);
+
     console.log("Upgrade clicked:", upgrade);
-    console.log("Current cookies:", cookies, "upgrade cost:", upgrade.cost);
-    if (cookies >= upgrade.cost) {
-      setCookies(Number(Number(cookies) - Number(upgrade.cost)));
-      setCookiesPerSecond(cookiesPerSecond + upgrade.value);
+    console.log("Current cookies:", cookies, "upgrade cost:", upgradeCost);
+
+    if (cookies >= upgradeCost) {
+      setCookies(cookies - upgradeCost);
+
+      setCookiesPerSecond(cookiesPerSecond + upgradeIncrease);
       console.log(
-        "type of cookies after upgrade",
-        typeof Number(cookies - upgrade.cost)
+        "New cookies per second:",
+        cookiesPerSecond + upgradeIncrease
       );
     }
   };
@@ -41,13 +46,17 @@ export default function Upgrade({
           <li key={upgrade.id}>
             <p>
               {upgrade.name}: {upgrade.description}
+              <br />
+              Cost: {upgrade.cost} cookies
+              <br />
+              Increases CPS by: {upgrade.increase}
             </p>
             <button
               onClick={function () {
                 handleUpgradeClick(upgrade);
               }}
             >
-              upgrade
+              Buy Upgrade
             </button>
           </li>
         ))}
