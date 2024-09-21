@@ -4,14 +4,14 @@ export default function Cookie({ cookies, setCookies, cookiesPerSecond }) {
   const [currentImage, setCurrentImage] = useState(0);
 
   const cookieImages = [
-    "/cookie 1.PNG",
-    "/cookie 2.PNG",
-    "/cookie 3.PNG",
-    "/cookie 4.PNG",
-    "/cookie 5.PNG",
-    "/cookie 6.PNG",
-    "/cookie 7.PNG",
-    "/cookie 8.PNG",
+    "/Cookie 1-edit.png",
+    "/Cookie 2-edit.png",
+    "/Cookie 3-edit.png",
+    "/Cookie 4-edit.png",
+    "/Cookie 5-edit.png",
+    "/Cookie 6-edit.png",
+    "/Cookie 7-edit.png",
+    "/Cookie 8-edit.png",
   ];
 
   const handleCookieClick = () => {
@@ -40,7 +40,7 @@ export default function Cookie({ cookies, setCookies, cookiesPerSecond }) {
   }, [cookies]);
 
   return (
-    <div>
+    <div className="cookieBox">
       <p>Cookies: {cookies}</p>
       <img
         src={cookieImages[currentImage]}

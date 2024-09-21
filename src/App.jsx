@@ -13,15 +13,17 @@ function App() {
   });
   return (
     <>
-      <div className="App">
-        <h1>Cookie Clicker v2.0</h1>
-        <div className="cookieSection">
-          <Cookie
-            cookies={cookies}
-            setCookies={setCookies}
-            cookiesPerSecond={cookiesPerSecond}
-            setCookiesPerSecond={setCookiesPerSecond}
-          />
+      <div className="App" id="root">
+        <div className="mainContent">
+          <h1>Cookie Clicker v2.0</h1>
+          <div className="cookieContainer">
+            <Cookie
+              cookies={cookies}
+              setCookies={setCookies}
+              cookiesPerSecond={cookiesPerSecond}
+              setCookiesPerSecond={setCookiesPerSecond}
+            />
+          </div>
         </div>
         <div className="upgradeContainer">
           <Upgrade

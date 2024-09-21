@@ -39,11 +39,11 @@ export default function Upgrade({
   };
 
   return (
-    <div className="upgradeContainer">
+    <div>
       <h2>Available Upgrades</h2>
-      <ul>
+      <div className="upgradeWrapper">
         {upgrades.map((upgrade) => (
-          <li key={upgrade.id}>
+          <div key={upgrade.id} className="buyUpgrades">
             <p>
               {upgrade.name}: {upgrade.description}
               <br />
@@ -58,9 +58,9 @@ export default function Upgrade({
             >
               Buy Upgrade
             </button>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
