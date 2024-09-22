@@ -23,7 +23,7 @@ function App() {
     const savedBoughtUpgrades = JSON.parse(
       localStorage.getItem("boughtUpgrades")
     );
-    return savedBoughtUpgrades || [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    return savedBoughtUpgrades || [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   });
 
   useEffect(() => {
