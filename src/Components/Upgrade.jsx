@@ -44,7 +44,6 @@ export default function Upgrade({
       newBoughtUpgrades[index] += 1;
       setBoughtUpgrades(newBoughtUpgrades);
 
-      // Persist boughtUpgrades to localStorage
       localStorage.setItem("boughtUpgrades", JSON.stringify(newBoughtUpgrades));
     }
   };

@@ -11,13 +11,12 @@ function App() {
 
   const [cookiesPerClick, setCookiesPerClick] = useState(() => {
     const savedCPC = Number(localStorage.getItem("cookiesPerClick"));
-    return savedCPC || 1; // Default value for CPC is 1
+    return savedCPC || 1;
   });
 
   const [cookies, setCookies] = useState(() => {
     const savedCookies = Number(localStorage.getItem("cookies"));
-    const checkCookies = savedCookies ? savedCookies : 0;
-    return checkCookies;
+    return savedCookies || 0;
   });
 
   const [boughtUpgrades, setBoughtUpgrades] = useState(() => {
@@ -43,6 +42,13 @@ function App() {
     localStorage.setItem("boughtUpgrades", JSON.stringify(boughtUpgrades));
   }, [boughtUpgrades]);
 
+  useEffect(() => {
+    const appElement = document.querySelector(".App");
+    if (appElement) {
+      appElement.style.backgroundImage = 'url("/background-image.jpg")';
+    }
+  }, []);
+
   const resetCookies = () => {
     setCookies(0);
     setCookiesPerSecond(1);
@@ -55,6 +61,13 @@ function App() {
     );
   };
 
+  const resetBackground = () => {
+    const appElement = document.querySelector(".App");
+    if (appElement) {
+      appElement.style.backgroundImage = 'url("/background-image.jpg")';
+    }
+  };
+
   return (
     <>
       <div className="App" id="root">
@@ -63,6 +76,9 @@ function App() {
           <button onClick={resetCookies} className="resetButton">
             Reset Cookies and Upgrades
           </button>{" "}
+          <button onClick={resetBackground} className="resetButton">
+            Reset Background
+          </button>
           <div className="cookieContainer">
             <Cookie
               cookies={cookies}

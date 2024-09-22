@@ -21,16 +21,16 @@ export default function Cookie({
   ];
 
   const upgradeImages = {
-    "Auto-Clicker": "Autoclicker.png",
-    "Enhanced Oven": "Enhanced Oven.png",
-    "Cookie Farm": "Cookie Farm.png",
-    "Robot Baker": "Robot Baker.png",
-    "Cookie Factory": "Cookie Factory.png",
-    "Magic Flour": "Magic Flour.png",
-    "Time Machine": "Time Machine.png",
-    "Quantum Oven": "Quantum Oven.png",
-    "Alien Technology": "Alien Technology.png",
-    "Interdimensional Baker": "Interdimensional Baker.png",
+    "Auto-Clicker": "/Autoclicker.png",
+    "Enhanced-Oven": "/Enhanced-Oven.png",
+    "Cookie-Farm": "/Cookie-Farm.png",
+    "Robot-Baker": "/Robot-Baker.png",
+    "Cookie-Factory": "/Cookie-Factory.png",
+    "Magic-Flour": "/Magic-Flour.png",
+    "Time-Machine": "/Time-Machine.png",
+    "Quantum-Oven": "/Quantum-Oven.png",
+    "Alien-Technology": "/Alien-Technology.png",
+    "Interdimensional-Baker": "/Interdimensional-Baker.png",
   };
 
   const handleCookieClick = () => {
@@ -40,18 +40,25 @@ export default function Cookie({
     setCurrentImage((currentImage + 1) % cookieImages.length);
   };
 
-  // Trigger pulse animation when the cookie count changes
+  const handleUpgradeClick = (imageSrc) => {
+    console.log("clicked image:", imageSrc);
+    const appElement = document.querySelector(".App");
+    if (appElement) {
+      appElement.style.backgroundImage = `url(${imageSrc})`;
+    }
+  };
+
   useEffect(() => {
     const numberElement = document.getElementById("number");
     if (numberElement) {
       numberElement.classList.add("pulse");
       const timer = setTimeout(() => {
         numberElement.classList.remove("pulse");
-      }, 600); // Match the duration of the pulse animation (0.6s)
+      }, 600);
 
-      return () => clearTimeout(timer); // Clean up the timeout
+      return () => clearTimeout(timer);
     }
-  }, [cookies]); // Run this effect every time the cookie count changes
+  }, [cookies]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -85,7 +92,8 @@ export default function Cookie({
                 <img
                   src={upgradeImages[upgradeName]}
                   alt={upgradeName}
-                  className={hasBeenBought ? "" : "hidden"}
+                  className={hasBeenBought ? "clickable" : "hidden"}
+                  onClick={() => handleUpgradeClick(upgradeImages[upgradeName])}
                 />
               </div>
             );
